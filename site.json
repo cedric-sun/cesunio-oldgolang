@@ -1,0 +1,42 @@
+{
+    "/": {
+        "index.html": {
+            "op": "template",
+            "src": ["layout.html","index.html"],
+            "dep": ["css/style.css"]
+        },
+        "about.html": {
+            "op": "template",
+            "src": ["layout.html","about.html"],
+            "dep": ["css/style.css"]
+        },
+        "stochastic-noise/index.html": {
+            "op": "template",
+            "src": ["layout.html","stochastic-noise/index.html"],
+            "dep": ["css/style.css"],
+            "data": "stochastic-noise/sn-index.so"
+        },
+        "about-this-site-workflow-and-templating-system/index.html": {
+            "op":"template",
+            "src":["layout.html","about-this-site-workflow-and-templating-system/index.html","article-main.html"],
+            "dep": ["css/style.css"],
+            "data": "about-this-site-workflow-and-templating-system/lastEdit.so"
+        },
+        "breaker/index.html": {
+            "op":"template",
+            "src":["layout.html","breaker/index.html"],
+            "dep": ["css/style.css"]
+        },
+        "css/style.css":{
+            "op": "copy",
+            "src": "css/style.css"
+        },
+        "assets/banner.webp": {
+            "op":"copy",
+            "src":"assets/banner.webp"
+        }
+    },
+    "rootTemplate":"page-layout",
+    "debug":"Debug",
+    "dataPrefix":"udata"
+}

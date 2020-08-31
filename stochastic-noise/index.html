@@ -1,0 +1,12 @@
+{{define "title"}}Stochastic Noise{{end}}
+{{define "in-head"}}{{end}}
+{{define "main"}}
+<main>
+    <h1>Stochastic Noise</h1>
+    {{ range .udata.artList }}
+    <div class="art-dgst">
+        <h1><a href={{.href}}>{{.title}}</a></h1>
+    </div>
+    {{end}}
+</main>
+{{end}}

@@ -1,0 +1,38 @@
+{{define "page-layout"}}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>{{ template "title" }}</title>
+</head>
+
+<body>
+    {{template "main" .}}
+    <footer><a href="/">cesun.io</a></footer>
+    {{ if .Debug }}
+    <script>
+        const wsuri = "ws://"+location.host+"{{.WsURIPath}}";
+        const ws = new WebSocket(wsuri);
+        ws.onopen = e =>
+        {
+            console.log("websocket opened: " + wsuri)
+            ws.send(location.pathname)
+        }
+        ws.onmessage = e =>
+        {
+            console.log("websocket msg: " + e.data)
+            if (e.data == "refresh")
+            {
+                location.reload()
+            }
+        }
+    </script>
+    {{end}}
+</body>
+
+</html>
+{{end}}
